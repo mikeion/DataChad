@@ -31,6 +31,17 @@ from tqdm import tqdm
 from datachad.constants import DATA_PATH, PAGE_ICON, PROJECT_URL
 from datachad.utils import logger
 
+############################################################
+# How docs are generated to then load into the vector store#
+############################################################
+# (The data source is stored in the streamlit session state)
+# 1. call load_data_source() to load the data
+# 2. call load_document(), load_directory() or load_document(web stuff) depending on the type of data
+# |-> load_directory() calls load_document() for each file in the directory and returns a list of documents
+# |-> load_document() calls the loader depending on the file extension
+# |-> load_document(web stuff) calls the loader for the web documents
+# 3. load_data_source() returns the docs
+# 4. call split_docs() to split the docs into chunks and then load into vector database
 
 class AutoGitLoader:
     def __init__(self, data_source: str) -> None:
