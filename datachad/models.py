@@ -19,8 +19,11 @@ MODELS.PY
 - Uses enumerated classes to represent the different models using the MODES, EMBEDDINGS, and MODELS classes
 - Defines three getters functions (get_model, get_embeddings, get_tokenizer) which return their respective objects
     - get_model() returns a BaseLanguageModel object, which is a wrapper for the different models
+        - takes in options and credentials, returns appropriate model specified in options, does error handling
     - get_embeddings() returns an Embeddings object, which is a wrapper for the different embeddings
+        - takes in options and credentials, returns embedding specified in options, does error handling
     - get_tokenizer() returns an AutoTokenizer object, which is a wrapper for the different tokenizers
+        - takes in options, checks embedding type specified in options, returns appropriate tokenizer for embedding
 """
 
 class Enum:
