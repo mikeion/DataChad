@@ -14,6 +14,14 @@ from transformers import AutoTokenizer
 from datachad.constants import GPT4ALL_BINARY, MODEL_PATH
 from datachad.logging import logger
 
+"""
+MODELS.PY
+- Uses enumerated classes to represent the different models using the MODES, EMBEDDINGS, and MODELS classes
+- Defines three getters functions (get_model, get_embeddings, get_tokenizer) which return their respective objects
+    - get_model() returns a BaseLanguageModel object, which is a wrapper for the different models
+    - get_embeddings() returns an Embeddings object, which is a wrapper for the different embeddings
+    - get_tokenizer() returns an AutoTokenizer object, which is a wrapper for the different tokenizers
+"""
 
 class Enum:
     @classmethod
